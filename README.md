@@ -1,1 +1,1 @@
-# ejerciciosdejava
+# ejerciciosdejavascript
