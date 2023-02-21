@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejercicio5</title>
+</head>
+<body>
+    <label for="modelo">Modelo de coche:</label>
+	<select id="modelo" name="modelo">
+		<option value="FORD FIESTA">FORD FIESTA</option>
+		<option value="FORD FOCUS">FORD FOCUS</option>
+		<option value="FORD ESCAPE">FORD ESCAPE</option>
+	</select>
+	<button onclick="calcularDescuento()">Calcular descuento en la compra</button>
+	<p id="resultado"></p>
+</body>
+<script>
+    function calcularDescuento() {
+  const inputModelo = document.getElementById("modelo");
+
+  const modelo = inputModelo.value;
+  let descuento = 0;
+
+  switch (modelo) {
+    case "FORD FIESTA":
+      descuento = 0.05;
+      break;
+    case "FORD FOCUS":
+      descuento = 0.1;
+      break;
+    case "FORD ESCAPE":
+      descuento = 0.2;
+      break;
+    default:
+      break;
+  }
+
+  const resultado = document.getElementById("resultado");
+  resultado.textContent = `Se ha seleccionado el coche ${modelo}. Se aplicará un descuento del ${descuento*100}% en la compra.`;
+}
+</script>
+</html>

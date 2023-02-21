@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejercicio8</title>
+</head>
+<body>
+    <label for="tempCelsius">Temperatura en Celsius:</label>
+<input type="number" id="tempCelsius">
+<button onclick="convertirTemperatura()">Convertir</button>
+
+<p id="tempFahrenheit"></p>
+<p id="mensaje"></p>
+
+</body>
+<script>
+    function convertirTemperatura() {
+  const tempCelsius = document.getElementById("tempCelsius").value;
+  const tempFahrenheit = (tempCelsius * 1.8) + 32;
+
+  document.getElementById("tempFahrenheit").innerHTML = `Temperatura en Fahrenheit: ${tempFahrenheit} ºF`;
+
+  if (tempFahrenheit >= 14 && tempFahrenheit < 32) {
+    document.getElementById("mensaje").innerHTML = "Temperatura baja";
+  } else if (tempFahrenheit >= 32 && tempFahrenheit < 68) {
+    document.getElementById("mensaje").innerHTML = "Temperatura adecuada";
+  } else if (tempFahrenheit >= 68 && tempFahrenheit < 96) {
+    document.getElementById("mensaje").innerHTML = "Temperatura alta";
+  } else {
+    document.getElementById("mensaje").innerHTML = "Temperatura desconocida";
+  }
+}
+
+</script>
+</html>

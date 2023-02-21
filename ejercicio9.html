@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejercicio9</title>
+</head>
+<body>
+    <h1>Resultados de la operación:</h1>
+	<p id="output"></p>
+
+</body>
+<script>
+function calcularResultados() {
+			// Obtener los 10 valores ingresados
+			const valores = [];
+			for (let i = 1; i <= 10; i++) {
+				const valor = parseInt(prompt(`Ingrese el valor ${i}`));
+				if (!isNaN(valor)) {
+					valores.push(valor);
+				}
+			}
+
+			// Calcular la cantidad de valores negativos y positivos
+			let negativos = 0;
+			let positivos = 0;
+			for (let i = 0; i < valores.length; i++) {
+				if (valores[i] < 0) {
+					negativos++;
+				} else if (valores[i] > 0) {
+					positivos++;
+				}
+			}
+
+			// Calcular la cantidad de múltiplos de 15
+			let multiplosDe15 = 0;
+			for (let i = 0; i < valores.length; i++) {
+				if (valores[i] % 15 === 0) {
+					multiplosDe15++;
+				}
+			}
+
+			// Calcular el valor acumulado de los números pares
+			let paresAcumulado = 0;
+			for (let i = 0; i < valores.length; i++) {
+				if (valores[i] % 2 === 0) {
+					paresAcumulado += valores[i];
+				}
+			}
+
+			// Mostrar los resultados en HTML
+			const output = document.getElementById('output');
+			output.innerHTML = `Cantidad de valores negativos: ${negativos}<br>
+			                    Cantidad de valores positivos: ${positivos}<br>
+			                    Cantidad de múltiplos de 15: ${multiplosDe15}<br>
+			                    Valor acumulado de los números pares: ${paresAcumulado}`;
+		}
+
+		calcularResultados();
+</script>
+</html>

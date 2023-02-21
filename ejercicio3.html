@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejercicio3</title>
+</head>
+<body>
+    <label for="nombre">Nombre del empleado:</label>
+	<input type="text" id="nombre" name="nombre">
+	<label for="salario">Salario actual:</label>
+	<input type="number" id="salario" name="salario">
+	<label for="categoria">Categoría del empleado:</label>
+	<select id="categoria" name="categoria">
+		<option value="A">A</option>
+		<option value="B">B</option>
+		<option value="C">C</option>
+		<option value="D">D</option>
+	</select>
+	<button onclick="calcularAumento()">Calcular aumento salarial</button>
+	<p id="resultado"></p>
+
+</body>
+<script>
+    function calcularAumento() {
+  const inputNombre = document.getElementById("nombre");
+  const inputSalario = document.getElementById("salario");
+  const inputCategoria = document.getElementById("categoria");
+
+  const nombre = inputNombre.value;
+  const salario = Number(inputSalario.value);
+  const categoria = inputCategoria.value;
+
+  let aumento = 0;
+  switch (categoria) {
+    case "A":
+      aumento = salario * 0.15;
+      break;
+    case "B":
+      aumento = salario * 0.3;
+      break;
+    case "C":
+      aumento = salario * 0.1;
+      break;
+    case "D":
+      aumento = salario * 0.2;
+      break;
+    default:
+      break;
+  }
+
+  const nuevoSalario = salario + aumento;
+
+  const resultado = document.getElementById("resultado");
+  resultado.textContent = `El empleado ${nombre} tiene un salario actual de $${salario} y pertenece a la categoría ${categoria}. Con el aumento correspondiente, su salario aumentará en $${aumento}, por lo que su nuevo salario será de $${nuevoSalario}.`;
+}
+</script>
+</html>
